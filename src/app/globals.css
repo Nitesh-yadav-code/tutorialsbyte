@@ -1,21 +1,144 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities{
+  
+}
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background-color-light: #f3f4f6;
+  --text-color-light: black;
+  --background-color-dark: #0f172a;
+  --text-color-dark: white; 
+}
+/* 1e293b */
+
+[data-theme='light'] {
+  --bg-color: var(--background-color-light);
+  --text-color: var(--text-color-light);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+[data-theme='dark'] {
+  --bg-color: var(--background-color-dark);
+  --text-color: var(--text-color-dark);
+}
+
+@layer base {
+    /* body{
+      @apply dark: bg-gray-100 mt-14 z-0 transition-all duration-300 leading-loose selection:bg-blue-600 selection:text-white selection:dark:text-white
+    } */
+    h1 {
+      @apply   text-slate-800 dark:text-slate-200;
+    }
+    h2 {
+      @apply text-slate-800 dark:text-slate-200;
+    }
+    h3 {
+      @apply text-slate-800 dark:text-slate-200;
+    }
+    p{
+        @apply text-slate-500 dark:text-slate-300;
+    }
   }
-}
+ 
+  /* slug page or single content page style */
+  @layer components{
+    .post-content{
+      @apply bg-slate-50 dark:bg-slate-900 rounded-md mt-4 shadow-lg px-2 py-4
+    }
+    .post-content h2{
+      @apply text-[1.5rem] my-4 font-bold tracking-wide leading-8 text-slate-900 dark:text-slate-100;
+    }
+    .post-content p{
+      @apply  text-[18px] leading-7 tracking-wider text-slate-900 dark:text-slate-200 my-2;
+    }
 
+    .post-content .wp-block-code{
+      @apply bg-slate-800 text-slate-200 overflow-x-auto p-4 h-fit rounded-md my-6 ;
+    }
+    .post-content pre{
+      @apply rounded-md;
+    }
+    .post-content pre code{
+      @apply text-sm md:text-base
+    }
+
+    .post-content .wp-block-embed{
+      @apply    hidden md:block my-4 mx-28
+    }
+    .post-content ul,ol {
+    
+      @apply ml-5 list-inside my-2  ;
+    
+  
+    }
+    .post-content ul{
+      @apply list-disc
+    }
+    .post-content ol{
+      @apply list-decimal
+    }
+  }
+
+
+
+  /* @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500;1,600&display=swap');
+  */
+
+html,
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-}
+  font-family: 'Poppins', sans-serif;
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
+} 
+
+ /* navbar css */
+  .myNav{
+    background: rgb(11,40,85);
+  background: linear-gradient(90deg, rgba(11,40,85,1) 0%, rgba(11,28,40,1) 100%, rgba(62,5,107,1) 100%, rgba(75,13,98,1) 100%, rgba(11,28,40,1) 100%);
+  }
+
+  .links{
+    padding: 7px 8px;
+    border-radius: 5px;
+  }
+  .links:hover{
+    color: rgb(170, 181, 198);
+    color: linear-gradient(124deg, rgba(113,129,154,1) 100%, rgba(123,133,166,1) 100%, rgba(62,5,107,1) 100%, rgba(75,13,98,1) 100%);
+    transition: all .3s;
+
+  }
+
+/* slug page css */
+  /* .thumbnail {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    padding-bottom: 55%; 
+  }
+  
+  .thumbnail img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  } */
+
+  .topContentBg{
+    background: rgb(39,130,132);
+background: linear-gradient(124deg, rgba(39,130,132,0.6363795518207283) 41%, rgba(181,14,48,0.3926820728291317) 100%, rgba(113,129,154,1) 100%);
+  }
+
+  /* .embed{
+    position: relative;
+    height: 250px;
+    max-width: 50%;
+    margin-left: 200px;
+    margin-top: 20px;
+    overflow: hidden;
+    
+  } */
