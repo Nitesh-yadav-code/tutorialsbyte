@@ -6,7 +6,7 @@ import { get_most_recent_post } from '../lib/api'
 import { get_post_category } from '../lib/api';
 import moment from 'moment';
 import Link from 'next/link';
-import TypewriterClient from './TypewriterClient ';
+// import TypewriterClient from './TypewriterClient ';
 const HeroPage = async () => {
     const recentPost = await get_most_recent_post();
     return (
@@ -15,8 +15,9 @@ const HeroPage = async () => {
                 <div className="content mt-20 md:mt-28">
                     <div className="main-head container  w-3/4 md:w-fit lg:w-3/4  m-auto md:m-0 md:ml-[5.4rem]">
                         <h1 className='text-3xl md:text-4xl xl:text-6xl p-2 md:p-4 font-semibold'>Learn With Nitesh</h1>
-                        <p className='text-xl md:text-2xl xl:text-4xl p-2 md:p-4 font-medium whitespace-nowrap'>
-                            The Ultimate Resource for Excelling in <TypewriterClient />
+                        <p className='text-xl md:text-2xl xl:text-4xl p-2 md:p-4 font-medium '> {/* whitespace-nowrap*/}
+                            The Ultimate Resource for Excelling in Web Development 
+                            {/* <TypewriterClient /> */}
                         </p>
 
                     </div>

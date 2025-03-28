@@ -4,7 +4,7 @@ import { Code, BookOpen, Lightbulb } from "lucide-react"
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen bg-slate-50 dark:bg-slate-900 pt-12 pb-12">
+    <main className="min-h-screen bg-slate-50 dark:bg-slate-900 pb-12">
       {/* Hero Section - Simpler design */}
       <section className="w-full topContentBg py-12 md:py-16">
         <div className="container mx-auto px-4 md:px-6">
@@ -97,7 +97,7 @@ export default function AboutPage() {
           <div className="flex flex-col md:flex-row items-center gap-8">
             <div className="w-48 h-48 relative rounded-full overflow-hidden border-4 border-blue-600">
               <Image
-                src="/placeholder.svg?height=200&width=200"
+                src="/learn-to-code.svg"
                 alt="Nitesh - Founder of TutorialsByte"
                 fill
                 className="object-cover"
