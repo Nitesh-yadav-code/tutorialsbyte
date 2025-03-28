@@ -5,7 +5,8 @@ import Content from '@/app/components/Content';
 import Image from 'next/image';
 import TopContentPost from '@/app/components/TopContentPost';
 import { YoutubeEmbed } from '@/app/components/YoutubeEmbed';
-const slug = async ({ params }) => {
+const slug = async props => {
+  const params = await props.params;
 
   const id = params.slug;
   const singlePost = await get_single_post(id);

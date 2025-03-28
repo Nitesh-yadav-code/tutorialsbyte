@@ -142,3 +142,8 @@ background: linear-gradient(124deg, rgba(39,130,132,0.6363795518207283) 41%, rgb
     overflow: hidden;
     
   } */
+
+
+  .inline-typewriter {
+    display: inline;
+}

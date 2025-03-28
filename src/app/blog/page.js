@@ -3,13 +3,13 @@ import Image from 'next/image'
 import { AiOutlineClockCircle } from "react-icons/ai";
 import { AiFillThunderbolt } from "react-icons/ai";
 
-import {get_all_post} from '../lib/api' 
+import { get_all_post } from '../lib/api'
 import Link from 'next/link';
 import moment from 'moment';
 
 
-  
-const blog = async() => {
+
+const blog = async () => {
     // const [blogData, setBlogData] = useState([])
     // useEffect(() => {
     //     const fetchData = async () => {
@@ -21,7 +21,7 @@ const blog = async() => {
 
     //     fetchData();
     // }, [])
-const blogData = await get_all_post();
+    const blogData = await get_all_post();
     return (
         <>
             <section className='articals p-2  container mx-[10%] w-fit overflow-hidden'>
@@ -31,24 +31,32 @@ const blogData = await get_all_post();
 
                 <div className="all-cards grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 ">
                     {blogData && blogData.map((post) => {
-                        return <div key={post.id}>
+                        return <div key={
+                            post.id}>
                             <div className="card border-0 shadow-lg dark:bg-slate-800 p-4">
                                 <div className="card-image cursor-pointer">
 
-                                    {/* {post.yoast_head_json.og_image?(
-                                    <>
-                                    <Link href={`/blog/${post.slug}`}>
-                                    <Image src={post.yoast_head_json.og_image[0].url} alt='Image' width={400} height={250} />
-                                    </Link>
-                                    </>):("")
-                                    
-                                } */}
-                                    
+                                    {post.yoast_head_json.og_image ? (
+                                        <>
+                                            <div className='relative w-full h-52'> {/* Set the height to 48 (12rem) */}
+                                                <Image
+                                                    className='mx-auto object-cover rounded-lg'
+                                                    fill={true}
+                                                    src={post.yoast_head_json.og_image[0].url}
+                                                    alt='Image'
+                                                    layout='fill'
+                                                    objectFit='cover'
+                                                />
+                                            </div>
+                                        </>) : ("")
+
+                                    }
+
                                 </div>
 
                                 <div className="title cursor-pointer py-3">
                                     <Link href={`/blog/${post.slug}`}>
-                                    <h3 className='text-xl font-black text-ellipsis leading-8 tracking-wide'>{post.title.rendered}</h3>
+                                        <h3 className='text-xl font-black text-ellipsis leading-8 tracking-wide'>{post.title.rendered}</h3>
                                     </Link>
                                 </div>
 

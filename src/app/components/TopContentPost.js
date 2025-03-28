@@ -4,7 +4,7 @@ const TopContentPost = ({singlePost}) => {
   return (
     <div className='font-Poppins font-normal '>
         <div className="title topContentBg  py-4 rounded-md">
-            <h1 className='text-gray-950 dark:text-slate-200 text-2xl mx-2 leading-8 tracking-wide md:text-3xl font-semibold text-center'>{singlePost.title.rendered}</h1>
+            <h1 className='text-gray-950 dark:text-slate-200 text-4xl mx-2 leading-8 tracking-wide md:text-3xl font-semibold text-center'>{singlePost.title.rendered}</h1>
         </div>
     </div>
   )

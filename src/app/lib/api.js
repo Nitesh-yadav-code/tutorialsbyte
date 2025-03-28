@@ -58,4 +58,16 @@ import axios from "axios";
     }
   }
 
+  export const fetch_top_blog = async()=>{
+    try {
+      const response = await wp.get('/posts?per_page=3&orderby=date')
+      if(response.status === 200){
+        return response.data;
+      }
+    } catch (error) {
+      console.log('Not fetched success');
+        console.log(error);
+    }
+  }
+
   

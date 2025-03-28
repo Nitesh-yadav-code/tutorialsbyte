@@ -18,11 +18,6 @@ function Content({content}) {
             const code = domNode.children;
             return <CodeWidget code ={code} />
           }
-          // if(domNode.attribs && domNode.name === 'code'){
-          //   const code = domNode.children;
-          //   return <CodeWidget code ={code} />
-          // }
-
         }
       };
   return parse(content, options);

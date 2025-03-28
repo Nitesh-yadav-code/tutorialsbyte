@@ -1,14 +1,16 @@
 import React from 'react'
 import Link from 'next/link'
 import {AiFillLinkedin,AiFillYoutube,AiFillInstagram,AiFillFacebook,AiFillGithub} from 'react-icons/ai'
-const Footer = () => {
+import { fetch_top_blog } from '../lib/api'
+const Footer = async() => {
+  const topBlog =  await fetch_top_blog();
   return (
     <footer className="footer p-8 mt-4 bg-slate-900 text-base-content shadow-top">
       <div className='mx-0 md:mx-12  grid grid-cols-1  md:grid-cols-3'>
       <div className='main-content'>
             <div className='logo-title text-center '>
-                <h1 className='text-4xl font-semibold text-slate-200 my-3'>Tutorials</h1>
-                <p className='text-slate-300'>Tutorials is an initiative to help beginners who wants to learn the basics of programming and how web development is done.</p>
+                <h1 className='text-4xl font-semibold text-slate-200 my-3'>TutorialsByte</h1>
+                <p className='text-slate-300'>TutorialsByte is an initiative to help beginners who wants to learn the basics of programming and how web development is done.</p>
             </div>
 
             <div className="links mt-4 ">
@@ -32,7 +34,14 @@ const Footer = () => {
 
         <div className='recent-tutorial'>
         <h2 className='text-3xl my-4 text-slate-200'>Top Tutorials</h2>
-        <p className='text-lg text-slate-300'> <span>1.</span> How to use Particles Js in React with react-tsparticles</p>
+        {topBlog.length > 0 && topBlog.map((blog, index) => {
+            return (
+              <p className='text-lg text-slate-300' key={index}>
+                <span>{index + 1}.</span> {" "} <Link href={`/blog/${blog.slug}`} className="text-blue-400 hover:underline">{blog.title.rendered}</Link>
+              </p>
+            )
+          })}
+        
         </div>
       </div>
      
@@ -44,3 +53,6 @@ const Footer = () => {
 }
 
 export default Footer
+
+
+
