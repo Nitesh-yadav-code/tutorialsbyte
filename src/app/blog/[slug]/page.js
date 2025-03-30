@@ -5,6 +5,27 @@ import Content from '@/app/components/Content';
 import Image from 'next/image';
 import TopContentPost from '@/app/components/TopContentPost';
 import { YoutubeEmbed } from '@/app/components/YoutubeEmbed';
+
+export async function generateMetadata(props) {
+  const params = await props.params;
+
+  const id = params.slug;
+  const singlePost = await get_single_post(id);
+
+  return {
+    title: singlePost.title.rendered,
+    description: singlePost.excerpt.rendered,
+    openGraph: {
+      url: singlePost.link,
+      title: singlePost.title.rendered,
+      description: singlePost.excerpt.rendered,
+      images: singlePost.yoast_head_json?.og_image
+        ? [{ url: singlePost.yoast_head_json.og_image[0].url }]
+        : [],
+      siteName: "SiteName",
+    },
+  };
+}
 const slug = async props => {
   const params = await props.params;
 
